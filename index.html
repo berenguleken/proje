@@ -251,15 +251,6 @@
     .topic-card h3 { margin: 0; font-size: 1.05rem; }
     .topic-card p { margin: 6px 0 0; color: var(--muted); font-size: .95rem; }
 
-    .map-placeholder {
-      border-radius: var(--radius);
-      border: 1px dashed #cbd5e1;
-      background: #f8fafc;
-      padding: 12px;
-      color: #475569;
-      font-size: .95rem;
-    }
-
     .progress {
       height: 10px;
       background: #eef2f7;
@@ -466,14 +457,6 @@
 
           <div class="divider"></div>
 
-          <div class="pill">🗺️ Harita / Görsel Alanı</div>
-          <p class="subtle" style="margin-top:10px;">
-            Proje puanı için konuya uygun bir harita ya da infografik eklemek çok etkili olur.
-          </p>
-          <div class="map-placeholder" role="note" aria-label="Harita alanı">
-            Buraya: “Türkiye’de Heyelan Risk Haritası”, “Yağış Dağılışı”, “Nüfus Yoğunluğu” gibi görseller ekleyebilirsin.
-            <br /><br />
-            İstersen ben sana uygun bir <strong>SVG/infografik</strong> de hazırlayabilirim.
           </div>
         </aside>
       </div>
@@ -486,11 +469,23 @@
       <div class="presentations" role="list">
         <div class="item" role="listitem">
           <a href="https://drive.google.com/file/d/1pKLVqfzi6AUYiZdoOstZS2vm5bIA9Myx/view?usp=sharing" target="_blank" rel="noopener">
-            ⛰️ Heyelan Sunumu - Ateş Taş
+           ⛰️ Heyelan Sunumu - Ateş Taş
           </a>
         </div>
 
         <div class="item" role="listitem">
+          <a href="https://drive.google.com/file/d/1mVRjWDI1fhyJRLkOa-uW9gxzX2wFeePW/view?usp=drive_link" target="_blank"  rel="noopener">
+            🧂 Tuz Gölü - Mete Balcı
+          </a>
+        </div>
+
+		 <div class="item" role="listitem">
+          <a href="https://drive.google.com/file/d/1sLwIjJpL0XO0eMzV8waV9DUAO3z7SQvT/view?usp=sharing" target="_blank"  rel="noopener">
+            🚢️ Panama Kanalı - Fatih Efe Kırtıl
+          </a>
+        </div>
+
+		<div class="item" role="listitem">
           <a href="https://drive.google.com/file/d/11btt-GavxRIMtRRcHAQ4v54KcULoOQDc/view?usp=sharing" target="_blank"  rel="noopener">
             🚇 Marmaray Sunumu - Mirza Emin Yıldız
           </a>
@@ -517,17 +512,15 @@
       <h2 id="quizler-title">🧠 Quizler</h2>
 
       <div class="topic-card" aria-label="Quiz konu seçimi">
-        <div class="topic-icon" aria-hidden="true">⛰️</div>
+        <div class="topic-icon" aria-hidden="true">❓</div>
         <div style="width:100%;">
           <h3>Konu Seç</h3>
 
           <label for="topicSelect" class="subtle" style="display:block; margin-top:8px;">Quiz Konusu</label>
           <select id="topicSelect" aria-label="Quiz konusu seç">
             <option value="heyelan">Heyelan</option>
-            <option value="marmaray">Marmaray</option>
-            <option value="avrasya">Avrasya Tüneli</option>
-            <option value="panama">Panama Kanalı</option>
-          </select>
+            <option value="tuzgolu">Tuz Gölü</option>
+            </select>
 
           <label for="isim" class="subtle" style="display:block; margin-top:8px;">İsim</label>
           <input type="text" id="isim" placeholder="Adınız" autocomplete="name" />
@@ -631,7 +624,7 @@
   </div>
 
   <footer>
-    © 2026 Bir Dünya Coğrafya Beren Güleken
+    © 2026 Bir Dünya Coğrafya Beren Güleken 
   </footer>
 
   <script>
@@ -682,8 +675,8 @@
 
     /********************
      * Quiz Verileri (JSON)
-     * - Aynı format: q / options / answerIndex / explain
-     * - Doğrular A'da değil, karışık dağıtıldı
+     * - Sadece Tuz Gölü seçeneği eklendi
+     * - Sorular eklenmedi (boş şablon)
      ********************/
     const QUIZZES = {
       heyelan: {
@@ -728,158 +721,11 @@
         ]
       },
 
-      marmaray: {
-        title: "Marmaray",
+      tuzgolu: {
+        title: "Tuz Gölü",
         timeSec: 90,
         pointsPerQuestion: 10,
-        questions: [
-          {
-            q: "Marmaray nedir?",
-            options: [
-              "İstanbul’da Avrupa ve Asya yakalarını denizin altından birbirine bağlayan karayolu ulaşım projesidir.",
-              "İstanbul’da yalnızca deniz üstünden yapılan bir köprü ulaşım projesidir.",
-              "İstanbul’da Avrupa ve Asya yakalarını denizin altından birbirine bağlayan demiryolu ulaşım projesidir."
-            ],
-            answerIndex: 2,
-            explain: "Marmaray; Avrupa ve Asya yakalarını denizin altından bağlayan bir demiryolu ulaşım projesidir."
-          },
-          {
-            q: "Marmaray Projesi hangi nedenle planlandı?",
-            options: [
-              "İstanbul’da turizmi artırmak için planlandı.",
-              "İstanbul’un artan nüfusu ve ulaşım ihtiyacı nedeniyle planlandı.",
-              "İstanbul’da yağış miktarı arttığı için planlandı."
-            ],
-            answerIndex: 1,
-            explain: "Marmaray Projesi, İstanbul’un artan nüfusu ve ulaşım ihtiyacı nedeniyle planlanmıştır."
-          },
-          {
-            q: "Marmaray ilk kez hangi hat olarak hizmete açıldı?",
-            options: [
-              "Söğütlüçeşme – Yenikapı hattı",
-              "Ayrılık Çeşmesi – Kazlıçeşme hattı",
-              "Üsküdar – Beşiktaş hattı"
-            ],
-            answerIndex: 1,
-            explain: "Marmaray ilk kez Ayrılık Çeşmesi – Kazlıçeşme hattı olarak hizmete açılmıştır."
-          },
-          {
-            q: "Marmaray’ın yapımında deniz tabanına yerleştirme süreciyle ilgili hangisi doğrudur?",
-            options: [
-              "Tünel tamamen doğal mağaralar kullanılarak oluşturuldu.",
-              "Tünel sadece köprü ayakları üzerine inşa edildi.",
-              "Beton tüpler milimetrik hassasiyetle yerleştirildi."
-            ],
-            answerIndex: 2,
-            explain: "Deniz tabanına yerleştirme sürecinde beton tüpler milimetrik hassasiyetle yerleştirilmiştir."
-          },
-          {
-            q: "Marmaray hangi boğazdan geçer?",
-            options: ["Çanakkale Boğazı", "İstanbul Boğazı", "Kerç Boğazı"],
-            answerIndex: 1,
-            explain: "Marmaray İstanbul Boğazı’nın altından geçer."
-          }
-        ]
-      },
-
-      avrasya: {
-        title: "Avrasya Tüneli",
-        timeSec: 90,
-        pointsPerQuestion: 10,
-        questions: [
-          {
-            q: "Avrasya Tüneli nedir?",
-            options: [
-              "Asya ve Avrupa yakalarını deniz üstünden köprüyle bağlayan demiryolu hattıdır.",
-              "İstanbul’da sadece yayalar için yapılmış bir deniz altı geçididir.",
-              "Asya ve Avrupa yakalarını, deniz tabanının altından geçen bir karayolu tüneli ile birbirine bağlayan karayolu tünelidir."
-            ],
-            answerIndex: 2,
-            explain: "Avrasya Tüneli; deniz tabanının altından geçen bir karayolu tünelidir ve iki yakayı bağlar."
-          },
-          {
-            q: "Avrasya Tüneli’nin temel amacı nedir?",
-            options: [
-              "İstanbul Boğazı geçişini tamamen kapatıp şehir içi karayolunu tek bir hatta toplamak",
-              "Koşuyolu – Kumkapı hattında karayolu geçişini hızlandırarak yolculuk süresini azaltmak ve trafik yoğunluğunu hafifletmeye katkı sağlamak",
-              "Koşuyolu – Kumkapı hattında demiryolu taşımacılığını artırmak için yeni bir tren tüneli oluşturmak"
-            ],
-            answerIndex: 1,
-            explain: "Temel amaç; Koşuyolu–Kumkapı hattında karayolu geçişini hızlandırıp süreyi azaltmaktır."
-          },
-          {
-            q: "Avrasya Tüneli toplam kaç kilometrelik bir güzergâhı kapsıyor?",
-            options: ["5,4 kilometre", "14,6 kilometre", "9,2 kilometre"],
-            answerIndex: 1,
-            explain: "Avrasya Tüneli toplam 14,6 kilometrelik bir güzergâhı kapsar."
-          },
-          {
-            q: "Koşuyolu – Kumkapı hattında kıtalararası yolculuk süresi ne kadar iniyor?",
-            options: ["20 dakikaya kadar", "60 dakikaya kadar", "5 dakikaya kadar"],
-            answerIndex: 2,
-            explain: "Koşuyolu–Kumkapı hattında kıtalararası yolculuk süresi 5 dakikaya kadar inebilir."
-          },
-          {
-            q: "Avrasya Tüneli’nin şerit düzeniyle ilgili hangisi doğrudur?",
-            options: [
-              "Her katta 1 şeritten çift yönlü geçiş sağlanır.",
-              "Her katta 2 şeritten tek yönlü geçiş sağlanır.",
-              "Her katta 3 şeritten çift yönlü geçiş sağlanır."
-            ],
-            answerIndex: 1,
-            explain: "Avrasya Tüneli’nde her katta 2 şeritten tek yönlü geçiş sağlanır."
-          }
-        ]
-      },
-
-      panama: {
-        title: "Panama Kanalı",
-        timeSec: 90,
-        pointsPerQuestion: 10,
-        questions: [
-          {
-            q: "Panama Kanalı hangi iki okyanusu birbirine bağlar?",
-            options: [
-              "Hint Okyanusu ile Atlas Okyanusu",
-              "Atlas Okyanusu ile Büyük Okyanus",
-              "Akdeniz ile Kızıldeniz"
-            ],
-            answerIndex: 1,
-            explain: "Panama Kanalı Atlas Okyanusu ile Büyük Okyanus’u birbirine bağlar."
-          },
-          {
-            q: "Panama Kanalı nerede yer alır?",
-            options: [
-              "Güney Amerika’da, And Dağları üzerinde",
-              "Afrika’da, Süveyş Kıstağı üzerinde",
-              "Orta Amerika’da, Panama Kıstağı üzerinde"
-            ],
-            answerIndex: 2,
-            explain: "Panama Kanalı Orta Amerika’da, Panama Kıstağı üzerinde yer alır."
-          },
-          {
-            q: "Panama Kanalı yaklaşık kaç kilometre uzunluğundadır?",
-            options: ["820 kilometre", "28 kilometre", "82 kilometre"],
-            answerIndex: 2,
-            explain: "Panama Kanalı yaklaşık 82 kilometre uzunluğundadır."
-          },
-          {
-            q: "Panama Kanalı’ndan geçen gemiler neye göre ücret öder?",
-            options: [
-              "Kanal sayesinde ülke, dünya ticaretinde stratejik bir konuma sahip olmuştur",
-              "Yük miktarına, geminin türüne ve boyutuna göre",
-              "Artan ticaret hacmi nedeniyle genişletme çalışmaları yapılmıştır"
-            ],
-            answerIndex: 1,
-            explain: "Gemiler; yük miktarı, geminin türü ve boyutuna göre ücret öder."
-          },
-          {
-            q: "Ortalama bir geminin kanaldan geçiş süresi ne kadardır?",
-            options: ["30–40 dakika", "8–10 saat", "2–3 gün"],
-            answerIndex: 1,
-            explain: "Ortalama geçiş süresi 8–10 saat aralığındadır."
-          }
-        ]
+        questions: [] // Şimdilik sorular eklenmiyor
       }
     };
 
@@ -931,6 +777,11 @@
       }
 
       const quiz = getQuiz();
+      if (!quiz.questions || quiz.questions.length === 0){
+        alert("Bu quiz için henüz soru eklenmedi.");
+        return;
+      }
+
       state = {
         name,
         topicKey: topicSelect.value,
